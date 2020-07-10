@@ -12,9 +12,9 @@ vpc_id=$(aws ec2 describe-vpcs \
 --query Vpcs[*].VpcId \
 --output text)
 
-for i in 'aws ec2 describe-internet-gateways --filters 'Name=attachment.vpc-id,Values='$vpc_id | grep InternetGatewayId';
+for i in 'aws ec2 describe-internet-gateways --filters 'Name=attachment.vpc-id,Values=$vpc_id' | grep InternetGatewayId'
 do 
-aws ec2 delete-internet-gateway --internet-gateway-id=$i; 
+  aws ec2 delete-internet-gateway --internet-gateway-id=$i
 done
 
 
