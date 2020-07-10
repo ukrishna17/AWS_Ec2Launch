@@ -3,7 +3,7 @@ instanceId=$(aws ec2 describe-instances \
 --query 'Reservations[*].Instances[*].{Instance:InstanceId}' \
 --output text)
 
-aws ec2 delete-instance --instance-id $instanceId
+aws ec2 terminate-instances --instance-id $instanceId
 
 aws ec2 delete-key-pair --key-name myvpc-keypair
 
