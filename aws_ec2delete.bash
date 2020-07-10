@@ -12,4 +12,4 @@ vpc_id=$(aws ec2 describe-vpcs \
 --query Vpcs[*].VpcId \
 --output text)
 
-aws ec2 delete-vpc --vpc-id $vpc_id
+aws ec2 delete-vpc --all-dependencies --vpc-id $vpc_id
